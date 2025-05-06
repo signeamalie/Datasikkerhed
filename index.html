@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Første dag på internettet</title>
+
+  <!-- ekstern styling -->
+  <link rel="stylesheet" href="scss/style.css" />
+
+  <!-- javascript der styrer logikken -->
+  <script src="js/js.js" defer></script>
+</head>
+<body>
+
+<main>
+
+  <!-- trin 1: introduktion -->
+  <section id="trin1" class="trin">
+    <h2>Første dag på internettet 🌐</h2>
+    <p>Du har netop fået din første mobil eller computer med internet. Du er nysgerrig og klar til at gå på opdagelse!</p>
+    <button id="startBtn">Start mit første klik</button>
+  </section>
+
+  <!-- trin 2: link fra ven -->
+  <section id="trin2" class="trin">
+    <h2>Din ven sender dig et link 📨</h2>
+    <p>“Er det dig på dette billede?” lyder beskeden. Linket virker ægte… men du er ikke helt sikker på, hvor det fører hen.</p>
+    <button id="klikBtn" class="valgBtn">Jeg stoler på min ven og klikker på linket</button>
+    <button id="ignorBtn" class="valgBtn">Jeg tjekker ikke ukendte links</button>
+  </section>
+
+  <!-- trin 3 + 4: feedback på klik -->
+  <section id="trin3" class="trin">
+    <h2>Åh nej! Det var phishing!</h2>
+    <p>Det var ikke din ven, men en hacker der brugte deres navn.</p>
+    <button id="phishNext">Gå videre</button>
+  </section>
+
+  <section id="trin4" class="trin">
+    <h2>Godt spottet! 🔍</h2>
+    <p>Du undgik at klikke. Linket var faktisk fup og du undgik fælden!</p>
+    <button id="safeNext">Gå videre</button>
+  </section>
+
+  <!-- trin 5: vælg adgangskode -->
+  <section id="trin5" class="trin">
+    <h2>Du opretter en bruger 👤</h2>
+    <p>Du har valgt en unik og stærk adgangskode - vil du også aktivere to-faktor-godkendelse?</p>
+    <button id="passwordBad" class="valgBtn">Nej, min unikke kode er nok</button>
+    <button id="passwordStrong" class="valgBtn">Ja, ekstra sikkerhed er godt</button>
+  </section>
+
+  <!-- trin 6 + 7: feedback på kodevalg -->
+  <section id="trin6" class="trin">
+    <h2>Du bliver hacket!</h2>
+    <p>Hackeren gættede din unikke kode og fik adgang til din konto.</p>
+    <button id="weakNext">Gå videre</button>
+  </section>
+
+  <section id="trin7" class="trin">
+    <h2>Din konto er beskyttet 🛡️</h2>
+    <p>To-faktor-godkendelse reddede dig fra et hacker-angreb - du surfer trygt videre.</p>
+    <button id="strongNext">Gå videre</button>
+  </section>
+
+  <!-- trin 8: netværksvalg -->
+  <section id="trin8" class="trin">
+    <h2>Du er på café og vil på nettet ☕</h2>
+    <p>Gratis Wi-Fi frister - eller vil du bruge VPN/mobildata?</p>
+    <button id="wifiOpen" class="valgBtn">Jeg vælger at bruge gratis Wi-Fi</button>
+    <button id="wifiSecure" class="valgBtn">Jeg vælger at bruge VPN/mobildata</button>
+  </section>
+
+  <!-- trin 9 + 10: feedback på netværksvalg -->
+  <section id="trin9" class="trin">
+    <h2>Ups... dine data blev opsnappet</h2>
+    <p>Det åbne netværk var usikkert. Dine oplysninger blev opsnappet.</p>
+    <button class="toSlutHøjRisiko">Se resultat</button>
+  </section>
+
+  <section id="trin10" class="trin">
+    <h2>Godt valgt!</h2>
+    <p>Din forbindelse var sikker. Du undgik overvågning.</p>
+    <button class="toSlutFejl">Se resultat</button>
+  </section>
+
+  <!-- resultat baseret på point -->
+  <section id="trin11" class="trin">
+    <h2>⚠️ Du blev snydt 3 gange</h2>
+    <p>Du scorede <strong>0 point</strong> ud af 3. Du lærer af dine fejl!</p>
+  </section>
+
+  <section id="trin12" class="trin">
+    <h2>🧐 Du blev snydt 1-2 gange</h2>
+    <p>Du scorede <strong>1-2 point</strong>. Du har en god forståelse!</p>
+  </section>
+
+  <section id="trin13" class="trin">
+    <h2>🌟 Du er cyber-sikker!</h2>
+    <p>Du scorede <strong>3 point</strong> ud af 3. Imponerende!</p>
+  </section>
+
+  <!-- brugervalg og opsummering -->
+  <section id="userChoices" class="trin" style="display: none;">
+    <ul id="choicesList"></ul>
+    <p id="scoreDisplay"></p>
+    <button id="restartBtn" class="restartBtn">🔁 Prøv igen</button>
+  </section>
+
+</main>
+</body>
+</html>
