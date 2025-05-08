@@ -8,34 +8,30 @@ let current = 0;       // sporer hvilket trin brugeren er på
 let userChoices = [];  // gemmer brugerens valg som tekst
 let score = 0;         // point bliver regnet ud senere
 
-// viser det relevante trin og skjuler de andre
+// funktion der viser det relevante trin og skjuler de andre
 const showStep = (index) => {
   sections.forEach((section, i) => {
     section.style.display = i === index ? 'block' : 'none';
   });
 };
 
-// gemmer valget som tekst og opdaterer localStorage, så valgene kan hentes igen
+// funktion der gemmer valget i arrayet
 const saveChoice = (text) => {
   userChoices.push(text);
-  localStorage.setItem('userChoices', JSON.stringify(userChoices));
 };
 
-// udregner og viser en opsummering af brugerens handlinger og resultater
+// funktion der udregner og viser en opsummering af brugerens handlinger og resultater
 const showSummary = () => {
   const section = document.getElementById('userChoices');
   const list = document.getElementById('choicesList');
   const scoreDisplay = document.getElementById('scoreDisplay');
   list.innerHTML = ''; // rydder tidligere resultater
 
-  // henter brugerens valg fra localStorage (eller starter tomt array)
-  const saved = JSON.parse(localStorage.getItem('userChoices')) || [];
-
-  // tjekker om bestemte valg svarer til de "sikre" handlinger
+  // tjekker om hvert valg var korrekt
   const correctAnswers = [
-    saved[1] === "ikke klikke på linket",       // phishing
-    saved[2] === "ekstra sikkerhed",            // adgangskode/to-faktor
-    saved[3] === "bruge VPN/mobildata"          // netværk
+    userChoices[1] === "ikke klikke på linket", // phishing
+    userChoices[2] === "ekstra sikkerhed",      // adgangskode/to-faktor
+    userChoices[3] === "bruge VPN/mobildata"    // netværk
   ];
 
   // beregner antal rigtige svar (true) i arrayet
@@ -67,20 +63,20 @@ const showSummary = () => {
     {
       icon: "🧩",
       text: "Da du fik et link fra en ven, valgte du at",
-      correct: saved[1] === "ikke klikke på linket",
-      value: saved[1]
+      correct: userChoices[1] === "ikke klikke på linket",
+      value: userChoices[1]
     },
     {
       icon: "🔐",
       text: "Du tog et valg om to-faktor-godkendelse - og det var:",
-      correct: saved[2] === "ekstra sikkerhed",
-      value: saved[2]
+      correct: userChoices[2] === "ekstra sikkerhed",
+      value: userChoices[2]
     },
     {
       icon: "📶",
       text: "Da du var på café, valgte du at",
-      correct: saved[3] === "bruge VPN/mobildata",
-      value: saved[3]
+      correct: userChoices[3] === "bruge VPN/mobildata",
+      value: userChoices[3]
     }
   ];
 
@@ -101,9 +97,8 @@ const showSummary = () => {
 
 // funktion der styrer hvad der sker, når brugeren vælger et svar
 const checkAnswer = (e) => {
-  const id = e.target.id; // henter ID'et på den trykkede knap
+  const id = e.target.id;
 
-  // switch bruges i stedet for if/else – giver bedre overblik med mange valgmuligheder
   switch (id) {
     case 'klikBtn':
       saveChoice("klikke på linket");
@@ -138,7 +133,7 @@ const checkAnswer = (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   showStep(current); // Starter ved trin 0
 
-  // starter spillet
+  // start
   document.getElementById('startBtn').addEventListener('click', () => {
     saveChoice("Startede scenariet");
     current++;
@@ -150,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', checkAnswer);
   });
 
-  // feedback-sider navigerer videre til næste trin
+  // feedback sider navigerer videre til næste trin
   document.getElementById('phishNext').addEventListener('click', () => {
     current = 4;
     showStep(current);
@@ -172,21 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // viser den afsluttende opsummering
-  document.querySelector('.toSlutHøjRisiko').addEventListener('click', () => {
-    saveChoice("Slutning: Høj risiko");
-    showSummary();
-  });
+  document.querySelector('.toSlutHøjRisiko').addEventListener('click', showSummary);
+  document.querySelector('.toSlutFejl').addEventListener('click', showSummary);
 
-  document.querySelector('.toSlutFejl').addEventListener('click', () => {
-    saveChoice("Slutning: Lær af fejl");
-    showSummary();
-  });
-
-  // restart knap rydder valgene og starter forfra
+  // start forfra
   const restartBtn = document.getElementById('restartBtn');
   if (restartBtn) {
     restartBtn.addEventListener('click', () => {
-      localStorage.removeItem('userChoices');
+      userChoices = []; // Nulstiller valgene
       location.reload();
     });
   }
