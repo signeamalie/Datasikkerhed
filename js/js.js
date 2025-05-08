@@ -4,7 +4,7 @@
 const sections = document.querySelectorAll('.trin');
 
 // initialisering af nødvendige værdier
-let current = 0;       // sporer hvilket trin brugeren er på
+let current = 0;   // sporer hvilket trin brugeren er på
 
 // jeg bruger et array (userChoices) til at gemme brugerens valg undervejs i oplevelsen.
 // localStorage bruges ikke, da jeg ønsker at nulstille valgene hver gang brugeren genindlæser siden.
