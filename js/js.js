@@ -4,9 +4,9 @@
 const sections = document.querySelectorAll('.trin');
 
 // initialisering af nødvendige værdier
-let current = 0;               // sporer hvilket trin brugeren er på
-let userChoices = [];          // gemmer brugerens valg som tekst
-let score = 0;                 // point bliver regnet ud senere
+let current = 0;       // sporer hvilket trin brugeren er på
+let userChoices = [];  // gemmer brugerens valg som tekst
+let score = 0;         // point bliver regnet ud senere
 
 // viser det relevante trin og skjuler de andre
 const showStep = (index) => {
