@@ -5,6 +5,11 @@ const sections = document.querySelectorAll('.trin');
 
 // initialisering af nødvendige værdier
 let current = 0;       // sporer hvilket trin brugeren er på
+
+// jeg bruger et array (userChoices) til at gemme brugerens valg undervejs i oplevelsen.
+// localStorage bruges ikke, da jeg ønsker at nulstille valgene hver gang brugeren genindlæser siden.
+// dette gør oplevelsen mere dynamisk og sikrer, at brugeren altid starter fra begyndelsen.
+
 let userChoices = [];  // gemmer brugerens valg som tekst
 let score = 0;         // point bliver regnet ud senere
 
@@ -25,7 +30,7 @@ const showSummary = () => {
   const section = document.getElementById('userChoices');
   const list = document.getElementById('choicesList');
   const scoreDisplay = document.getElementById('scoreDisplay');
-  list.innerHTML = ''; // rydder tidligere resultater
+  list.innerHTML = ''; // Rydder tidligere resultater
 
   // tjekker om hvert valg var korrekt
   const correctAnswers = [
@@ -131,7 +136,7 @@ const checkAnswer = (e) => {
 
 // når hele HTML dokumentet er indlæst, tilføjes alle event listeners
 document.addEventListener('DOMContentLoaded', () => {
-  showStep(current); // Starter ved trin 0
+  showStep(current); // starter ved trin 0
 
   // start
   document.getElementById('startBtn').addEventListener('click', () => {
@@ -145,25 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', checkAnswer);
   });
 
-  // feedback sider navigerer videre til næste trin
-  document.getElementById('phishNext').addEventListener('click', () => {
-    current = 4;
-    showStep(current);
-  });
-
-  document.getElementById('safeNext').addEventListener('click', () => {
-    current = 4;
-    showStep(current);
-  });
-
-  document.getElementById('weakNext').addEventListener('click', () => {
-    current = 7;
-    showStep(current);
-  });
-
-  document.getElementById('strongNext').addEventListener('click', () => {
-    current = 7;
-    showStep(current);
+  // event listener til næste trin
+  const nextStepBtns = ['phishNext', 'safeNext', 'weakNext', 'strongNext'];
+  nextStepBtns.forEach(btnId => {
+    document.getElementById(btnId).addEventListener('click', () => {
+      current = (btnId === 'weakNext' || btnId === 'strongNext') ? 7 : 4;
+      showStep(current);
+    });
   });
 
   // viser den afsluttende opsummering
@@ -174,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const restartBtn = document.getElementById('restartBtn');
   if (restartBtn) {
     restartBtn.addEventListener('click', () => {
-      userChoices = []; // Nulstiller valgene
+      userChoices = []; // nulstiller valgene
       location.reload();
     });
   }
