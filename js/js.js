@@ -54,7 +54,7 @@ const showSummary = () => {
       break;
     case 2:
     case 1:
-      heading.innerHTML = "😅 Du blev snydt 1–2 gange. Du har en god forståelse, øvelse gør mester!";
+      heading.innerHTML = "😅 Du blev snydt 1-2 gange. Du har en god forståelse, øvelse gør mester!";
       break;
     default:
       heading.innerHTML = "⚠️ Du blev snydt 3 gange. Nu ved du, hvad du skal holde øje med næste gang!";

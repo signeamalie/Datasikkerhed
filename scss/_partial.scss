@@ -1,9 +1,9 @@
 // typografi til overskrifter og brødtekst
-$heading-font: 'Raleway', sans-serif;     // bruges til h2
-$paragraph-font: 'Open Sans', sans-serif; // bruges til body
+$heading-font: 'Raleway', sans-serif;
+$paragraph-font: 'Open Sans', sans-serif; 
 
-// knapfarve som bruges via mixin
-$button-color: #1d6273; // bruges til knapper
+// farve til knapper
+$button-color: #1d6273;
 
 // genanvendelig knap-mixin
 @mixin btn($bg-color: $button-color) {
