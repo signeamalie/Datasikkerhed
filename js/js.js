@@ -30,7 +30,7 @@ const showSummary = () => {
   const section = document.getElementById('userChoices');
   const list = document.getElementById('choicesList');
   const scoreDisplay = document.getElementById('scoreDisplay');
-  list.innerHTML = ''; // Rydder tidligere resultater
+  list.innerHTML = ''; // rydder tidligere resultater
 
   // tjekker om hvert valg var korrekt
   const correctAnswers = [
