@@ -21,7 +21,6 @@ body {
   text-align: center;
   line-height: 1.6;
 
-  // ensfarvet tekstfarve og margin
   h2, p, ul li, strong {
     color: white;
     max-width: 40ch;
@@ -59,7 +58,6 @@ body {
     margin-top: 1rem;
     cursor: pointer;
     border: none;
-    transition: 0.3s ease;
 
     &:hover {
       opacity: 0.9;
@@ -68,16 +66,14 @@ body {
   }
 }
 
-// styling til feedback sektionen med brugerens svar og point
+// styling til feedback sektion
 #userChoices {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  margin: 20vh auto 0 auto; 
+  margin: 20vh auto 0 auto;
   padding: 2rem 1.5rem;
-
   max-width: 500px;
   width: 90%;
   box-sizing: border-box;
@@ -111,28 +107,27 @@ body {
   }
 
   button {
-    margin-top: -5rem;
+    margin-top: -1rem;
   }
 }
 
-// responsiv tilpasning til tablet & mobile
+// responsiv tilpasning til mobil
 @media (max-width: 600px) {
-    .trin {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 2rem 1rem;
-    }
-  
-    .trin h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-  
-    .trin p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
+  .trin {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1rem;
   }
- 
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}

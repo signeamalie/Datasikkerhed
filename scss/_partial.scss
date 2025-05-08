@@ -1,21 +1,17 @@
-// farvevariabler til genbrug overalt i designet
-$primary-color: #FBC100;           // primær gul farve til highlights og elementer
-$button-color: #1d6273;            // standardfarve til knapper
-$footer-color: #002D65;            // mørk blå bruges i footer eller kontrastsektioner
-$background-color: #F8F8F8;        // neutral baggrundsfarve
-$highlight-color: #f5ebdc;         // blød beige til fremhævning
+// typografi til overskrifter og brødtekst
+$heading-font: 'Raleway', sans-serif;     // bruges til h2
+$paragraph-font: 'Open Sans', sans-serif; // bruges til body
 
-// typografi til ensartet skriftdesign
-$heading-font: 'Raleway', sans-serif;     // overskriftsskrifttype - elegant og moderne
-$paragraph-font: 'Open Sans', sans-serif; // brødtekst - god læsbarhed på skærm
+// knapfarve som bruges via mixin
+$button-color: #1d6273; // bruges til knapper
 
-// genanvendelig knap-mixin til ens styling
+// genanvendelig knap-mixin
 @mixin btn($bg-color: $button-color) {
-  background-color: $bg-color;       // gør det muligt at ændre baggrundsfarven
-  padding: 0.8rem 1.5rem;            // indvendig afstand – gør knappen nem at trykke på
-  color: white;                    // tekstfarve
-  border-radius: 0;                  // ingen runde hjørner – minimalistisk udtryk
-  display: inline-block;             // sørger for at knappen opfører sig korrekt i layout
-  text-align: center;                // centrerer teksten i knappen
-  transition: 0.3s ease;             // blød overgang ved hover
+  background-color: $bg-color;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  border-radius: 0;
+  display: inline-block;
+  text-align: center;
+  transition: 0.3s ease;
 }
